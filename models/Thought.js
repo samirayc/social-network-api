@@ -1,8 +1,8 @@
 const { Schema, model, Types } = require('mongoose');
-// import moment module to format the timestamp 
+// Import moment module to format timestamp 
 const moment = require('moment')
 
-//reaction schema
+// Reaction schema
 const reactionSchema = new Schema (
     {
        reactionId: {
@@ -33,7 +33,7 @@ const reactionSchema = new Schema (
     }
 )
 
-// thought schema
+// Thought schema
 const thoughtSchema = new Schema (
     {
       thoughtText: {
@@ -63,13 +63,13 @@ const thoughtSchema = new Schema (
 )
 
 
-// get total count of friends
+// To get total count of friends
 thoughtSchema.virtual('reactionCount')
 .get(function() {
     return this.reactions.length;
 })
 
-// create the User model using the UserSchema
+// Create User model using UserSchema
 const Thought = model('Thought', thoughtSchema);
-// export the Thought model
+// Export the Thought model
 module.exports = Thought;
