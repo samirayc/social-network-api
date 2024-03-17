@@ -31,6 +31,7 @@ module.exports = {
             console.log(err);
             return res.status(500).json(err);
           });
+    },
 
     // Update a user
     updateUser(req, res) {
@@ -45,6 +46,7 @@ module.exports = {
               : res.json(user)
           )
           .catch((err) => res.status(500).json(err));
+        },
 
     // Delete a user
     // BONUS: Remove a user's associated thoughts when deleted.
@@ -60,6 +62,33 @@ module.exports = {
       },
 
     // Add a friend
+    addFriend(req, res) {
+        User.findOneAndUpdate(
+          { _id: req.params.userId },
+          { $addToSet: { friends: req.params.friendId } },
+          { runValidators: true, new: true }
+        )
+          .then((user) =>
+            !user
+              ? res.status(404).json({ message: "No User find with this ID!" })
+              : res.json(user)
+          )
+          .catch((err) => res.status(500).json(err));
+      },
 
     // Delete a friend
+    deleteFriend(req, res) {
+        User.findOneAndUpdate(
+          { _id: req.params.userId },
+          { $pull: { friends: req.params.friendId } },
+          { new: true }
+        )
+          .then(
+            (user) =>
+              !user
+                ? res.status(404).json({ message: "No User find with this ID!" })
+                : res.json(user)
+          )
+          .catch((err) => res.status(500).json(err));
+      },
 };
