@@ -5,9 +5,29 @@ An API for a social network web app where users can add friends, create thoughts
 
 ## Table of Contents
 
+* [Demo](#demo)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Technologies](#technologies)
+
+## Demo
+
+View the full demo [here](https://drive.google.com/file/d/1UVP3Wx6KyB7xTmPEFwj0kv_GpoA4p7Vr/view?usp=sharing)
+
+Examples:
+
+Get all thoughts
+
+![Get all thoughts](public/images/GET-all-thoughts.png)
+
+Get all users
+![Get all users](public/images/GET-all-users.png)
+
+Get reaction
+![Get reaction](public/images/GET-reaction.png)
+
+Add friend
+![Add friend](public/images/ADD-friend.png)
 
 ## Installation
 
